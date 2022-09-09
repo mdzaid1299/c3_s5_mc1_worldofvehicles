@@ -1,19 +1,15 @@
-public class Transmission {
+public abstract  class Transmission {
 
     private  String modelNo;
-    private int forwardGear;
-    private double _1stGearRatio;
-    private double _2ndGearRatio;
-    private double _3rdGearRatio;
-    private double _4thGearRatio;
+    private String transmissionType;
+    private int noOfGears;
+    double[] gearRatio = new double[noOfGears];
 
-    public Transmission(String modelNo, int forwardGear, double _1stGearRatio, double _2ndGearRatio, double _3rdGearRatio, double _4thGearRatio) {
+    public Transmission(String modelNo, int noOfGears,String transmissionType) {
         this.modelNo = modelNo;
-        this.forwardGear = forwardGear;
-        this._1stGearRatio = _1stGearRatio;
-        this._2ndGearRatio = _2ndGearRatio;
-        this._3rdGearRatio = _3rdGearRatio;
-        this._4thGearRatio = _4thGearRatio;
+        this.noOfGears = noOfGears;
+        this.transmissionType = transmissionType;
+
     }
 
     public String getModelNo() {
@@ -24,53 +20,39 @@ public class Transmission {
         this.modelNo = modelNo;
     }
 
-    public int getForwardGear() {
-        return forwardGear;
+    public String getTransmissionType() {
+        return transmissionType;
     }
 
-    public void setForwardGear(int forwardGear) {
-        this.forwardGear = forwardGear;
+    public void setTransmissionType(String transmissionType) {
+        this.transmissionType = transmissionType;
     }
 
-    public double get_1stGearRatio() {
-        return _1stGearRatio;
+    public int getNoOfGears() {
+        return noOfGears;
     }
 
-    public void set_1stGearRatio(double _1stGearRatio) {
-        this._1stGearRatio = _1stGearRatio;
+    public void setNoOfGears(int noOfGears) {
+        this.noOfGears = noOfGears;
     }
 
-    public double get_2ndGearRatio() {
-        return _2ndGearRatio;
+    public double[] getGearRatio() {
+        return gearRatio;
     }
 
-    public void set_2ndGearRatio(double _2ndGearRatio) {
-        this._2ndGearRatio = _2ndGearRatio;
+    public void setGearRatio(double[] gearRatio) {
+        this.gearRatio = gearRatio;
     }
-
-    public double get_3rdGearRatio() {
-        return _3rdGearRatio;
-    }
-
-    public void set_3rdGearRatio(double _3rdGearRatio) {
-        this._3rdGearRatio = _3rdGearRatio;
-    }
-
-    public double get_4thGearRatio() {
-        return _4thGearRatio;
-    }
-
-    public void set_4thGearRatio(double _4thGearRatio) {
-        this._4thGearRatio = _4thGearRatio;
-    }
-    public void showSpecs(){
-        System.out.println("Transmission modelNo = " + modelNo);
-        System.out.println("Key Specification: ");
-        System.out.println("forwardGear = " + forwardGear);
-        System.out.println("_1stGearRatio = " + _1stGearRatio);
-        System.out.println("_2ndGearRatio = " + _2ndGearRatio);
-        System.out.println("_3rdGearRatio = " + _3rdGearRatio);
-        System.out.println("_4thGearRatio = " + _4thGearRatio);
-
+    public void showSpecs() {
+        System.out.println("Transmission Type = " + transmissionType);
+        System.out.println("Transmission model No = " + modelNo);
+        System.out.println();
+        System.out.println("Key Specifications :");
+        System.out.println("Forward Gears = " + noOfGears);
+        int count = 1;
+        for (int i = 0; i < noOfGears; i++) {
+            System.out.println(count + " Gear Ratio : " + gearRatio[i]);
+            count++;
+        }
     }
 }
