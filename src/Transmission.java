@@ -9,7 +9,6 @@ public abstract  class Transmission {
         this.modelNo = modelNo;
         this.noOfGears = noOfGears;
         this.transmissionType = transmissionType;
-
     }
 
     public String getModelNo() {
